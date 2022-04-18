@@ -3,6 +3,7 @@
 #include <math.h>
 #include <array>
 #include <stdint.h>
+#include <vector>
 
 #include "sincos.h"
 
@@ -550,5 +551,37 @@ class JFFT
         {
         data[i] /= double(N);
         }
+      }
+
+    void fft(float* data)
+      {
+      std::vector<double> tmp(2 * N);
+      const float* it = data;
+      const float* it_end = data + 2 * N;
+      double* tmp_it = tmp.data();
+      for (; it != it_end; ++it, ++tmp_it)
+        *tmp_it = (double)*it;
+      fft(tmp.data());
+      float* it2 = data;
+      float* it2_end = data + 2 * N;
+      const double* tmp2_it = tmp.data();
+      for (; it2 != it2_end; ++it2, ++tmp2_it)
+        *it2 = (float)*tmp2_it;
+      }
+
+    void ifft(float* data)
+      {
+      std::vector<double> tmp(2 * N);
+      const float* it = data;
+      const float* it_end = data + 2 * N;
+      auto tmp_it = tmp.begin();
+      for (; it != it_end; ++it, ++tmp_it)
+        *tmp_it = (double)*it;
+      ifft(tmp.data());
+      float* it2 = data;
+      float* it2_end = data + 2 * N;
+      tmp_it = tmp.begin();
+      for (; it2 != it2_end; ++it2, ++tmp_it)
+        *it2 = (float)*tmp_it;
       }
   };
