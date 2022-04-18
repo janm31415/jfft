@@ -16,7 +16,7 @@ to download the qdouble submodule.
 
 Tested on Windows with FFTW 3.3.10.
 
-FFTW is slightly faster and sligthly more accurate, but the results of JFFT are in the same ballpark.
+FFTW is slightly faster and sligthly more accurate, but the results of JFFT are in the same ballpark. So why should you opt for JFFT instead of FFTW? Depends on your use case: you cannot compile FFTW yourself but need to download precompiled binaries from the website. JFFT on the other hand is easy to use in your projects. Just take the files jfft.h and sincos.h from folder jfft in the code repository and you're good to go. They will compile on any system.
 
 The benchmark starts from a signal with values
 
