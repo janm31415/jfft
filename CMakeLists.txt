@@ -13,5 +13,9 @@ add_subdirectory(qdouble)
 add_subdirectory(gensincos)
 add_subdirectory(jfft.tests)
 
+if(WIN32)
+add_subdirectory(bench2fftw)
+endif(WIN32)
+
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
