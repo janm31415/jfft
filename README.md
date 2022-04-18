@@ -7,7 +7,9 @@ To improve on the accuracy, sine and cosine tables are used that hold trigonomet
 ## Building
 
 Use CMake to make a solution or project file. All dependencies are delivered with the code, but you need to call
+
     git submodule update --init
+    
 to download the qdouble submodule.
 
 ## Benchmark with FFTW (https://www.fftw.org)
@@ -246,4 +248,4 @@ The error is the l2 distance between the original input signal and the signal af
     ********************* 
     P = 25   n = 33554432 
     JFFT took 4.34667 seconds. 
-    Error = 8.65019e-05
+    Error = 8.65019e-05
