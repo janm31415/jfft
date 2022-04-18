@@ -19,7 +19,9 @@ Tested on Windows with FFTW 3.3.10.
 FFTW is slightly faster and sligthly more accurate, but the results of JFFT are in the same ballpark.
 
 The benchmark starts from a signal with values
+
     [0.5 1.5 2.5 3.5 4.5 5.5 ... ]
+    
 where even spots represent the real value and odd spots represent the imaginary value of the signal.
 
 The timing below is the time spent to do a forward and inverse Fourier transform on different sizes of the input signal (see value n for the actual size).
