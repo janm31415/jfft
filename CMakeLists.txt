@@ -13,6 +13,7 @@ add_subdirectory(qdouble)
 add_subdirectory(gensincos)
 add_subdirectory(jfft.tests)
 add_subdirectory(bench2gfft)
+add_subdirectory(bench2nr)
 
 if(WIN32)
 add_subdirectory(bench2fftw)

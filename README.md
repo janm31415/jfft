@@ -491,3 +491,241 @@ The error is the l2 distance between the original input signal and the signal af
     P = 25   n = 33554432 
     JFFT took 4.36226 seconds. 
     Error = 8.65019e-05 
+    
+## Benchmark with Numerical Recipes algorithm
+
+See project bench2nr in the code repository for the Numerical Recipes algorithm.
+
+The benchmark starts from a signal with values
+
+    [0.5 1.5 2.5 3.5 4.5 5.5 ... ]
+    
+where even spots represent the real value and odd spots represent the imaginary value of the signal.
+
+The timing below is the time spent to do a forward and inverse Fourier transform on different sizes of the input signal (see value n for the actual size).
+
+The error is the l2 distance between the original input signal and the signal after the forward and inverse Fourier transform was applied. Theoretically both signals should be the same.
+
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 10   n = 1024 
+    Numerical Recipes FFT took 3.52e-05 seconds. 
+    Error = 1.68084e-11 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 10   n = 1024 
+    JFFT took 4.73e-05 seconds. 
+    Error = 8.66112e-12 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 11   n = 2048 
+    Numerical Recipes FFT took 6.17e-05 seconds. 
+    Error = 5.20885e-11 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 11   n = 2048 
+    JFFT took 6.36e-05 seconds. 
+    Error = 2.56608e-11 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 12   n = 4096 
+    Numerical Recipes FFT took 0.0001897 seconds. 
+    Error = 2.55807e-10 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 12   n = 4096 
+    JFFT took 0.000138 seconds. 
+    Error = 8.32846e-11 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 13   n = 8192 
+    Numerical Recipes FFT took 0.0004294 seconds. 
+    Error = 7.61365e-10 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 13   n = 8192 
+    JFFT took 0.0004379 seconds. 
+    Error = 2.41285e-10 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 14   n = 16384 
+    Numerical Recipes FFT took 0.0009259 seconds. 
+    Error = 2.38421e-09 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 14   n = 16384 
+    JFFT took 0.000566 seconds. 
+    Error = 6.52764e-10 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 15   n = 32768 
+    Numerical Recipes FFT took 0.0024159 seconds. 
+    Error = 1.27958e-08 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 15   n = 32768 
+    JFFT took 0.0011664 seconds. 
+    Error = 1.86269e-09 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 16   n = 65536 
+    Numerical Recipes FFT took 0.0062476 seconds. 
+    Error = 7.92988e-08 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 16   n = 65536 
+    JFFT took 0.0026459 seconds. 
+    Error = 5.75984e-09 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 17   n = 131072 
+    Numerical Recipes FFT took 0.0141679 seconds. 
+    Error = 4.12748e-07 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 17   n = 131072 
+    JFFT took 0.0092858 seconds. 
+    Error = 1.76641e-08 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 18   n = 262144 
+    Numerical Recipes FFT took 0.0335481 seconds. 
+    Error = 1.80861e-06 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 18   n = 262144 
+    JFFT took 0.0151345 seconds. 
+    Error = 4.76694e-08 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 19   n = 524288 
+    Numerical Recipes FFT took 0.096015 seconds. 
+    Error = 6.76875e-06 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 19   n = 524288 
+    JFFT took 0.0329845 seconds. 
+    Error = 1.45623e-07 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 20   n = 1048576 
+    Numerical Recipes FFT took 0.370845 seconds. 
+    Error = 1.83267e-05 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 20   n = 1048576 
+    JFFT took 0.083529 seconds. 
+    Error = 4.2469e-07 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 21   n = 2097152 
+    Numerical Recipes FFT took 0.985585 seconds. 
+    Error = 6.30989e-05 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 21   n = 2097152 
+    JFFT took 0.199259 seconds. 
+    Error = 1.24236e-06 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 22   n = 4194304 
+    Numerical Recipes FFT took 2.28663 seconds. 
+    Error = 0.000294101 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 22   n = 4194304 
+    JFFT took 0.447993 seconds. 
+    Error = 3.53914e-06 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 23   n = 8388608 
+    Numerical Recipes FFT took 5.28164 seconds. 
+    Error = 0.000851496 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 23   n = 8388608 
+    JFFT took 0.93264 seconds. 
+    Error = 9.94399e-06 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 24   n = 16777216 
+    Numerical Recipes FFT took 12.4231 seconds. 
+    Error = 0.00288371 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 24   n = 16777216 
+    JFFT took 2.01482 seconds. 
+    Error = 2.97006e-05 
+ 
+    ********************* 
+    Numerical Recipes FFT 
+    ********************* 
+    P = 25   n = 33554432 
+    Numerical Recipes FFT took 29.2235 seconds. 
+    Error = 0.0120259 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 25   n = 33554432 
+    JFFT took 4.76568 seconds. 
+    Error = 8.65019e-05
