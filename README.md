@@ -251,3 +251,243 @@ The error is the l2 distance between the original input signal and the signal af
     P = 25   n = 33554432 
     JFFT took 4.34667 seconds. 
     Error = 8.65019e-05
+    
+## Benchmark with GFFT
+
+GFFT stands for Generic FFT and is the implementation that was presented in the article "A Simple and Efficient FFT Implementation in C++" by Volodymyr Myrnyy. It is thus similar to JFFT except for the precomputed sine and cosine tables.
+
+JFFT is slightly faster, but more importantly is the accuracy that is a lot better for JFFT, due to the high precision sine and cosine tables that were used.
+
+The benchmark starts from a signal with values
+
+    [0.5 1.5 2.5 3.5 4.5 5.5 ... ]
+    
+where even spots represent the real value and odd spots represent the imaginary value of the signal.
+
+The timing below is the time spent to do a forward and inverse Fourier transform on different sizes of the input signal (see value n for the actual size).
+
+The error is the l2 distance between the original input signal and the signal after the forward and inverse Fourier transform was applied. Theoretically both signals should be the same.
+
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 10   n = 1024 
+    GFFT took 5.07e-05 seconds. 
+    Error = 2.77469e-11 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 10   n = 1024 
+    JFFT took 5.12e-05 seconds. 
+    Error = 8.66112e-12 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 11   n = 2048 
+    GFFT took 9.34e-05 seconds. 
+    Error = 7.41851e-11 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 11   n = 2048 
+    JFFT took 5.32e-05 seconds. 
+    Error = 2.56608e-11 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 12   n = 4096 
+    GFFT took 0.0002041 seconds. 
+    Error = 3.30917e-10 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 12   n = 4096 
+    JFFT took 0.0001165 seconds. 
+    Error = 8.32846e-11 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 13   n = 8192 
+    GFFT took 0.0004587 seconds. 
+    Error = 8.60276e-10 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 13   n = 8192 
+    JFFT took 0.0002485 seconds. 
+    Error = 2.41285e-10 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 14   n = 16384 
+    GFFT took 0.0009951 seconds. 
+    Error = 2.6341e-09 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 14   n = 16384 
+    JFFT took 0.0007858 seconds. 
+    Error = 6.52764e-10 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 15   n = 32768 
+    GFFT took 0.0019709 seconds. 
+    Error = 1.17166e-08 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 15   n = 32768 
+    JFFT took 0.0011322 seconds. 
+    Error = 1.86269e-09 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 16   n = 65536 
+    GFFT took 0.0044781 seconds. 
+    Error = 7.70487e-08 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 16   n = 65536 
+    JFFT took 0.0027097 seconds. 
+    Error = 5.75984e-09 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 17   n = 131072 
+    GFFT took 0.0098262 seconds. 
+    Error = 4.26797e-07 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 17   n = 131072 
+    JFFT took 0.0059191 seconds. 
+    Error = 1.76641e-08 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 18   n = 262144 
+    GFFT took 0.0206693 seconds. 
+    Error = 1.85389e-06 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 18   n = 262144 
+    JFFT took 0.0137888 seconds. 
+    Error = 4.76694e-08 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 19   n = 524288 
+    GFFT took 0.0450895 seconds. 
+    Error = 6.78293e-06 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 19   n = 524288 
+    JFFT took 0.0316258 seconds. 
+    Error = 1.45623e-07 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 20   n = 1048576 
+    GFFT took 0.105294 seconds. 
+    Error = 1.84731e-05 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 20   n = 1048576 
+    JFFT took 0.0769551 seconds. 
+    Error = 4.2469e-07 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 21   n = 2097152 
+    GFFT took 0.25631 seconds. 
+    Error = 6.26402e-05 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 21   n = 2097152 
+    JFFT took 0.201158 seconds. 
+    Error = 1.24236e-06 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 22   n = 4194304 
+    GFFT took 0.537161 seconds. 
+    Error = 0.000295987 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 22   n = 4194304 
+    JFFT took 0.430878 seconds. 
+    Error = 3.53914e-06 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 23   n = 8388608 
+    GFFT took 1.13658 seconds. 
+    Error = 0.00085578 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 23   n = 8388608 
+    JFFT took 0.921224 seconds. 
+    Error = 9.94399e-06 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 24   n = 16777216 
+    GFFT took 2.47917 seconds. 
+    Error = 0.00287892 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 24   n = 16777216 
+    JFFT took 2.02032 seconds. 
+    Error = 2.97006e-05 
+ 
+    ********************* 
+    GFFT 
+    ********************* 
+    P = 25   n = 33554432 
+    GFFT took 5.20966 seconds. 
+    Error = 0.0120375 
+ 
+    ********************* 
+    JFFT 
+    ********************* 
+    P = 25   n = 33554432 
+    JFFT took 4.36226 seconds. 
+    Error = 8.65019e-05 

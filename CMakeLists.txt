@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_subdirectory(qdouble)
 add_subdirectory(gensincos)
 add_subdirectory(jfft.tests)
+add_subdirectory(bench2gfft)
 
 if(WIN32)
 add_subdirectory(bench2fftw)
