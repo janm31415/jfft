@@ -4,6 +4,7 @@
 
 #include "test_assert.h"
 
+#include <cmath>
 #include <iostream>
 
 template <int P>
